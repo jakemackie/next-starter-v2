@@ -1,5 +1,4 @@
 import {
-  SidebarProvider,
   Sidebar,
   SidebarHeader,
   SidebarContent,
@@ -34,6 +33,8 @@ import {
   Home,
   Settings,
 } from 'lucide-react';
+
+import Link from 'next/link';
 
 export function AppSidebar() {
   const topLevelNavItems = [
@@ -113,9 +114,11 @@ export function AppSidebar() {
                 <DropdownMenuItem>
                   <span>Billing</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <span>Sign out</span>
-                </DropdownMenuItem>
+                <Link href="/logout">
+                  <DropdownMenuItem className="cursor-pointer">
+                    <span>Logout</span>
+                  </DropdownMenuItem>
+                </Link>
               </DropdownMenuContent>
             </DropdownMenu>
           </SidebarMenuItem>
