@@ -27,14 +27,15 @@ import {
 import {
   ChevronUp,
   ChevronDown,
-  MessageSquareText as FAQ,
+  MessageCircleQuestion as FAQ,
   Send as Feedback,
   User2,
   Home,
-  Settings,
+  MessageSquareText,
 } from 'lucide-react';
 
 import Link from 'next/link';
+import { FeedbackDialog } from '@/components/global/dialogs/feedback-dialog';
 
 export function AppSidebar() {
   const topLevelNavItems = [
@@ -43,7 +44,16 @@ export function AppSidebar() {
   ];
 
   const helpNavItems = [
-    { title: 'Feedback', url: '/dashboard/feedback', icon: Feedback },
+    {
+      title: 'Feedback',
+      icon: Feedback,
+      dialog: true,
+    },
+    {
+      title: 'Contact',
+      icon: MessageSquareText,
+      url: '/dashboard/contact',
+    }
   ];
 
   return (
@@ -80,12 +90,21 @@ export function AppSidebar() {
                 <SidebarMenu>
                   {helpNavItems.map((navItem) => (
                     <SidebarMenuItem key={navItem.title}>
-                      <SidebarMenuButton asChild>
-                        <a href={navItem.url}>
-                          <navItem.icon />
-                          <span>{navItem.title}</span>
-                        </a>
-                      </SidebarMenuButton>
+                      {navItem.dialog ? (
+                        <FeedbackDialog>
+                          <SidebarMenuButton>
+                            <navItem.icon />
+                            <span>{navItem.title}</span>
+                          </SidebarMenuButton>
+                        </FeedbackDialog>
+                      ) : (
+                        <SidebarMenuButton asChild>
+                          <a href={navItem.url}>
+                            <navItem.icon />
+                            <span>{navItem.title}</span>
+                          </a>
+                        </SidebarMenuButton>
+                      )}
                     </SidebarMenuItem>
                   ))}
                 </SidebarMenu>

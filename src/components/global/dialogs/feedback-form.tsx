@@ -14,6 +14,8 @@ import {
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { DialogClose } from "@/components/ui/dialog"
+import { useRef } from 'react';
 
 const feedbackSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -24,6 +26,7 @@ const feedbackSchema = z.object({
 type FormData = z.infer<typeof feedbackSchema>;
 
 export function FeedbackForm() {
+  const closeRef = useRef<HTMLButtonElement>(null);
   const form = useForm<FormData>({
     resolver: zodResolver(feedbackSchema),
     defaultValues: {
@@ -35,6 +38,8 @@ export function FeedbackForm() {
 
   async function onSubmit(values: FormData) {
     // Handle form submission here
+    alert('Thank you for your feedback!');
+    closeRef.current?.click(); // Programmatically click the close button
   }
 
   return (
@@ -85,6 +90,9 @@ export function FeedbackForm() {
             </FormItem>
           )}
         />
+        <div className="hidden">
+          <DialogClose ref={closeRef} />
+        </div>
         <Button 
           type="submit" 
           className="w-full"

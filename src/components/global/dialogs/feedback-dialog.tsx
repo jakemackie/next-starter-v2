@@ -6,14 +6,13 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
-import { FeedbackForm } from './feedback-form'
+import { FeedbackForm } from '@/components/global/dialogs/feedback-form'
 
-export default function Feedback() {
+export function FeedbackDialog({ children }: { children: React.ReactNode }) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Open Feedback</Button>
+        {children}
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
@@ -26,4 +25,4 @@ export default function Feedback() {
       </DialogContent>
     </Dialog>
   );
-}
+} 
