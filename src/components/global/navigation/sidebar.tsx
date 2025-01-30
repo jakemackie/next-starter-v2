@@ -39,7 +39,7 @@ import Link from 'next/link';
 export function AppSidebar() {
   const topLevelNavItems = [
     { title: 'Home', url: '/dashboard', icon: Home },
-    { title: 'Q&A', url: '/dashboard/faq', icon: FAQ },
+    { title: 'FAQs', url: '/dashboard/faq', icon: FAQ },
   ];
 
   const helpNavItems = [
