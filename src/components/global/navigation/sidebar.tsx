@@ -127,9 +127,11 @@ export function AppSidebar() {
                 side="top"
                 className="w-[--radix-popper-anchor-width]"
               >
-                <DropdownMenuItem>
-                  <span>Account</span>
-                </DropdownMenuItem>
+                <Link href="/dashboard/account">
+                  <DropdownMenuItem className="cursor-pointer">
+                    <span>Account</span>
+                  </DropdownMenuItem>
+                </Link>
                 <DropdownMenuItem>
                   <span>Billing</span>
                 </DropdownMenuItem>

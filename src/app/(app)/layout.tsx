@@ -1,12 +1,22 @@
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { AppSidebar } from '@/components/global/navigation/sidebar';
 import { Toaster } from '@/components/ui/sonner';
+import { redirect } from 'next/navigation'
+import { createClient } from '@/utils/supabase/server'
 
-export default function DashboardLayout({
+export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const supabase = await createClient()
+
+  const { data, error } = await supabase.auth.getUser()
+  if (error || !data?.user) {
+    redirect('/login')
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar />
