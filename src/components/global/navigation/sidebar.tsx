@@ -118,7 +118,7 @@ export function AppSidebar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent
                 side="top"
-                className="w-[--radix-popper-anchor-width]"
+                className="w-(--radix-popper-anchor-width)"
               >
                 <Link href="/dashboard/account">
                   <DropdownMenuItem className="cursor-pointer">

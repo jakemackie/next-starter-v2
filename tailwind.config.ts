@@ -1,19 +1,19 @@
 import type { Config } from 'tailwindcss';
-import fluid, { extract, screens, fontSize } from 'fluid-tailwind';
+// import fluid, { extract, screens, fontSize } from 'fluid-tailwind';
 
 export default {
-  darkMode: ['class'],
+  darkMode: 'class',
   content: {
     files: [
       './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
       './src/components/**/*.{js,ts,jsx,tsx,mdx}',
       './src/app/**/*.{js,ts,jsx,tsx,mdx}',
     ],
-    extract,
+    // extract  - Broken with v4
   },
   theme: {
-    screens,
-    fontSize,
+    // screens, - Broken with v4
+    // fontSize, - Broken with v4
     extend: {
       colors: {
         background: 'hsl(var(--background))',
@@ -74,5 +74,8 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // require('tailwindcss-animate'), - Broken with v4
+    // fluid - Broken with v4
+  ],
 } satisfies Config;
