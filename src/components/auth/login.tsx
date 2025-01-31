@@ -18,6 +18,7 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
+import { Icons } from '@/components/icons/icon';
 
 type FormData = z.infer<typeof loginSchema>;
 
@@ -101,7 +102,16 @@ export default function LoginForm() {
           type="submit"
           disabled={form.formState.isSubmitting || !form.formState.isValid}
         >
-          {form.formState.isSubmitting ? 'Logging in...' : 'Login'}
+          {form.formState.isSubmitting ? (
+            <>
+              <Icons.Spinner />
+              Logging in...
+            </>
+          ) : (
+            <>
+              Login
+            </>
+          )}
         </Button>
       </form>
     </Form>

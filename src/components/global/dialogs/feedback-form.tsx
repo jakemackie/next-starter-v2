@@ -105,9 +105,7 @@ export function FeedbackForm() {
               Submitting...
             </>
           ) : (
-            <>
-              Submit Feedback!
-            </>
+            'Submit Feedback!'
           )}
         </Button>
       </form>

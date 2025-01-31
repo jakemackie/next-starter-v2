@@ -4,9 +4,10 @@ export const Icons = {
     <svg 
       {...props}
       viewBox="0 0 24 24" 
-      xmlns="http://www.w3.org/2000/svg">
-        <g>
-          <rect x="11" y="1" width="2" height="5" opacity=".14"/>
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g>
+        <rect x="11" y="1" width="2" height="5" opacity=".14"/>
           <rect x="11" y="1" width="2" height="5" transform="rotate(30 12 12)" opacity=".29"/>
           <rect x="11" y="1" width="2" height="5" transform="rotate(60 12 12)" opacity=".43"/>
           <rect x="11" y="1" width="2" height="5" transform="rotate(90 12 12)" opacity=".57"/>
@@ -22,6 +23,6 @@ export const Icons = {
             repeatCount="indefinite"
           />
         </g>
-      </svg>
+    </svg>
   ),
 };
