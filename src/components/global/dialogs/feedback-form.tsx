@@ -11,10 +11,10 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { DialogClose } from "@/components/ui/dialog"
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
+import { DialogClose } from '@/components/ui/dialog';
 import { useRef } from 'react';
 
 const feedbackSchema = z.object({
@@ -80,10 +80,10 @@ export function FeedbackForm() {
             <FormItem>
               <FormLabel>Feedback</FormLabel>
               <FormControl>
-                <Textarea 
-                  placeholder="Enter your feedback..." 
+                <Textarea
+                  placeholder="Enter your feedback..."
                   className="min-h-[100px]"
-                  {...field} 
+                  {...field}
                 />
               </FormControl>
               <FormMessage />
@@ -93,8 +93,8 @@ export function FeedbackForm() {
         <div className="hidden">
           <DialogClose ref={closeRef} />
         </div>
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           className="w-full"
           disabled={form.formState.isSubmitting || !form.formState.isValid}
         >
@@ -103,4 +103,4 @@ export function FeedbackForm() {
       </form>
     </Form>
   );
-} 
+}

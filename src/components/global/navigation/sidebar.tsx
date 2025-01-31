@@ -53,11 +53,11 @@ export function AppSidebar() {
       title: 'Contact',
       icon: MessageSquareText,
       url: '/dashboard/contact',
-    }
+    },
   ];
 
   return (
-    <Sidebar variant="floating">
+    <Sidebar variant="floating" className="pr-0">
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
