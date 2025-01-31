@@ -38,8 +38,7 @@ import { FeedbackDialog } from '@/components/global/dialogs/feedback-dialog';
 
 export function AppSidebar() {
   const topLevelNavItems = [
-    { title: 'Home', url: '/dashboard', icon: Home },
-    { title: 'FAQs', url: '/dashboard/faq', icon: FAQ },
+    { title: 'Home', url: '/dashboard', icon: Home }
   ];
 
   const helpNavItems = [
