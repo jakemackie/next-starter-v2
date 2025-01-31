@@ -30,8 +30,7 @@ import {
   MessageCircleQuestion as FAQ,
   Send as Feedback,
   User2,
-  Home,
-  MessageSquareText,
+  Home
 } from 'lucide-react';
 
 import Link from 'next/link';
@@ -48,12 +47,7 @@ export function AppSidebar() {
       title: 'Feedback',
       icon: Feedback,
       dialog: true,
-    },
-    {
-      title: 'Contact',
-      icon: MessageSquareText,
-      url: '/dashboard/contact',
-    },
+    }
   ];
 
   return (
@@ -61,7 +55,9 @@ export function AppSidebar() {
       <SidebarHeader />
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel className='hover:text-foreground transition-colors duration-300 ease-in-out'>
+            Application
+          </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {topLevelNavItems.map((navItem) => (
@@ -79,7 +75,7 @@ export function AppSidebar() {
         </SidebarGroup>
         <Collapsible defaultOpen className="group/collapsible">
           <SidebarGroup>
-            <SidebarGroupLabel asChild>
+            <SidebarGroupLabel asChild className='hover:text-foreground transition-colors duration-300 ease-in-out'>
               <CollapsibleTrigger>
                 Help
                 <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
@@ -98,11 +94,9 @@ export function AppSidebar() {
                           </SidebarMenuButton>
                         </FeedbackDialog>
                       ) : (
-                        <SidebarMenuButton asChild>
-                          <a href={navItem.url}>
-                            <navItem.icon />
-                            <span>{navItem.title}</span>
-                          </a>
+                        <SidebarMenuButton>
+                          <navItem.icon />
+                          <span>{navItem.title}</span>
                         </SidebarMenuButton>
                       )}
                     </SidebarMenuItem>
