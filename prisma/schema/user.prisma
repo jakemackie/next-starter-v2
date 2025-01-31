@@ -1,3 +1,30 @@
+model Users {
+  uid       String    @id
+  email     String    @unique
+  username  String?   @unique
+  firstName String?
+  lastName  String?
+  role      Role      @default(USER)
+  tier      Tier      @default(FREE)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  lastLogin DateTime?
+  profile   Profile?
+}
+
+model Profile {
+  uid        String   @id @default(cuid())
+  userUid    String   @unique
+  isPublic   Boolean  @default(true)
+  isVerified Boolean  @default(false)
+  showEmail  Boolean  @default(false)
+  avatarUrl  String?
+  bio        String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  user       Users    @relation(fields: [userUid], references: [uid], onDelete: Cascade)
+}
+
 enum Role {
   USER
   ADMIN
@@ -6,43 +33,4 @@ enum Role {
 enum Tier {
   FREE
   PREMIUM
-}
-
-model Users {
-  uid        String   @id()
-  email      String   @unique
-  username   String?   @unique
-  firstName  String?
-  lastName   String?
-
-  // user settings
-  role       Role     @default(USER)
-  tier       Tier     @default(FREE)
-
-  // profile
-  profile    Profile?
-
-  // timestamps
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-  lastLogin  DateTime?
-}
-
-model Profile {
-  uid        String   @id @default(cuid())
-  userUid String @unique
-  user Users @relation(fields: [userUid], references: [uid], onDelete: Cascade, onUpdate: Cascade)
-
-  // profile visibility
-  isPublic Boolean @default(true)
-  isVerified Boolean @default(false)
-  showEmail Boolean @default(false)
-
-  // profile content
-  avatarUrl String?
-  bio String? @db.Text
-
-  // timestamps
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
 }
