@@ -74,5 +74,8 @@ export default {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), fluid],
+  plugins: [
+    require('tailwindcss-animate'), 
+    fluid
+  ],
 } satisfies Config;
