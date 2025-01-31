@@ -16,6 +16,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { DialogClose } from '@/components/ui/dialog';
 import { useRef } from 'react';
+import { Icons } from '@/components/icons/icon';
 
 const feedbackSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -37,9 +38,9 @@ export function FeedbackForm() {
   });
 
   async function onSubmit(values: FormData) {
-    // Handle form submission here
+    await new Promise((resolve) => setTimeout(resolve, 2000));
     alert('Thank you for your feedback!');
-    closeRef.current?.click(); // Programmatically click the close button
+    closeRef.current?.click();
   }
 
   return (
@@ -98,7 +99,16 @@ export function FeedbackForm() {
           className="w-full"
           disabled={form.formState.isSubmitting || !form.formState.isValid}
         >
-          {form.formState.isSubmitting ? 'Submitting...' : 'Submit Feedback'}
+          {form.formState.isSubmitting ? (
+            <>
+              <Icons.Spinner />
+              Submitting...
+            </>
+          ) : (
+            <>
+              Submit Feedback!
+            </>
+          )}
         </Button>
       </form>
     </Form>
