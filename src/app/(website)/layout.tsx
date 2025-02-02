@@ -20,7 +20,7 @@ export default function AuthLayout({
             See the latest changes being developed for this template.{' '}
           </span>
           <Link
-            href="/changelog"
+            href="/"
             className="inline-flex ml-2 items-center gap-2 text-primary-foreground group"
           >
             View changelog
