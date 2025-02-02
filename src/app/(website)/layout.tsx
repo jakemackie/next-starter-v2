@@ -28,7 +28,9 @@ export default function AuthLayout({
           </Link>
         </span>
       </Banner>
-      <div className="w-full mx-auto max-w-screen-lg">{children}</div>
+      <div className="w-full mx-auto max-w-screen-lg px-4 lg:px-0 pt-10">
+        {children}
+      </div>
       <Toaster />
     </main>
   );
