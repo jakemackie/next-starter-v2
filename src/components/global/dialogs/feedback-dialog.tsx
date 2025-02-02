@@ -6,7 +6,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
-import { FeedbackForm } from '@/components/global/dialogs/feedback-form';
+import { FeedbackForm } from '@/components/global/forms/feedback-form';
 
 export function FeedbackDialog({ children }: { children: React.ReactNode }) {
   return (
