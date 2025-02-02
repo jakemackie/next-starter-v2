@@ -16,7 +16,7 @@ const Banner = React.forwardRef<
       )}
       {...props}
     >
-      <span className="mx-auto max-w-screen-lg flex items-center gap-2">
+      <span className="mx-auto max-w-screen-lg flex flex-wrap items-center gap-2">
         {children}
       </span>
     </div>
