@@ -2,7 +2,7 @@ export default async function Home() {
   return (
     <div className="space-y-6">
       <h1 className="text-5xl lg:text-7xl font-bold lg:leading-20 tracking-tight">
-        Don&apos;t waste time finding that email.
+        Thousands of designs that are proven to convert.
       </h1>
       <p className="text-xl lg:text-2xl font-medium tracking-tight">
         AI can do that for you, for free.
