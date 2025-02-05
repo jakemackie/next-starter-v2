@@ -10,9 +10,18 @@ export default function WebsiteLayout({
 }) {
   return (
     <main className="relative">
-      {/* Gradient background with grain */}
-      <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f46e520,#6b5baf20,#4f46e520)] blur-3xl" />
+      <div className="fixed inset-0 -z-10 flex justify-center items-center">
+        {/* Blurry Gradient Blob */}
+        <div className="absolute size-[70%] rounded-full bg-gradient-to-r from-[#b0d0ff] via-[#c1d7ff] to-[#bec1ff] blur-[120px]" />
+
+        {/* Noise Overlay with Softened Edges */}
+        <div
+          className="absolute size-1/2 rounded-full pointer-events-none bg-[url('/noise.svg')] mix-blend-overlay opacity-60"
+          style={{
+            maskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)',
+            WebkitMaskImage: 'radial-gradient(circle, rgba(0,0,0,1) 50%, rgba(0,0,0,0) 100%)'
+          }}
+        />
       </div>
 
       <Banner>
